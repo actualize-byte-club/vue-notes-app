@@ -1,9 +1,11 @@
 <script>
 import NoteSelectors from "@/components/NoteSelectors.vue";
+import NoteEditor from "@/components/NoteEditor.vue";
 
 export default {
   components: {
-    NoteSelectors
+    NoteSelectors,
+    NoteEditor
   }
 };
 </script>
@@ -11,14 +13,13 @@ export default {
 <template>
   <div class="note-container">
     <NoteSelectors />
-    <div class="note-editor">
-      <p class="note-editor-info">Timestamp here...</p>
-      <textarea class="note-editor-input">
-          First note...
-
-          Note text here...
-        </textarea
-      >
-    </div>
+    <NoteEditor />
   </div>
 </template>
+
+<style>
+.note-container {
+  display: flex;
+  flex: 1;
+}
+</style>
