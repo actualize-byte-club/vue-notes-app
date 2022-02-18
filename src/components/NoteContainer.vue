@@ -6,13 +6,18 @@ export default {
   components: {
     NoteSelectors,
     NoteEditor
-  }
+  },
+  props: ["notes", "selectedNoteId"]
 };
 </script>
 
 <template>
   <div class="note-container">
-    <NoteSelectors />
+    <NoteSelectors
+      :notes="notes"
+      @select-note="$emit('selectNote', note)"
+      :selectedNoteId="selectedNoteId"
+    />
     <NoteEditor />
   </div>
 </template>
