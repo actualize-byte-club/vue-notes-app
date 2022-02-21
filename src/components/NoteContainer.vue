@@ -7,7 +7,12 @@ export default {
     NoteSelectors,
     NoteEditor
   },
-  props: ["notes", "selectedNoteId"]
+  props: ["notes", "selectedNoteId"],
+  methods: {
+    selectNote: function (note) {
+      this.$emit("selectNote", note);
+    }
+  }
 };
 </script>
 
@@ -15,7 +20,7 @@ export default {
   <div class="note-container">
     <NoteSelectors
       :notes="notes"
-      @select-note="$emit('selectNote', note)"
+      @select-note="selectNote"
       :selectedNoteId="selectedNoteId"
     />
     <NoteEditor />

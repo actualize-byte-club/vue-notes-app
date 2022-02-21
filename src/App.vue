@@ -17,6 +17,11 @@ export default {
       ],
       selectedNoteId: 1
     };
+  },
+  methods: {
+    selectNote: function (note) {
+      this.selectedNoteId = note.id;
+    }
   }
 };
 </script>
@@ -26,7 +31,7 @@ export default {
     <NoteToolbar />
     <NoteContainer
       :notes="notes"
-      @select-note="selectedNoteId = 2"
+      @select-note="selectNote"
       :selectedNoteId="selectedNoteId"
     />
   </div>
